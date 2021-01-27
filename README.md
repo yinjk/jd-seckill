@@ -1,5 +1,14 @@
 # Jd_Seckill
 
+## Quick Start
+1. 下载本工程 `git clone https://github.com/yinjk/jd-seckill.git`
+2. 随便找一个商品下单，然后进入结算页面，打开浏览器的调试窗口，切换到控制台Tab页，在控制台中输入变量`_JdTdudfp`，即可从输出的Json中获取`eid`和`fp`
+3. `vim dockerfile/docker.env` 填写`eid`和`fp`配置
+4. 执行`./run.sh up`启动docker容器，然后再执行`./run.sh logs`可以查看日志这时会输出`二维码未扫描，请扫描二维码`
+5. 扫描二维码，执行`./run.sh qrcode`会显示一张二维码，用京东app扫描这张二维码即可，扫码完成之后再执行`./run.sh logs`即可看见脚本已经在开始抢购了
+6. 抢购时间是早上10点，故只需要在抢购前几分钟执行`./run.sh start`来启动脚本，在抢购结束之后执行`./run.sh stop`来结束脚本。
+7. 抢购成功之后去订单页付款即可，祝大家茅台大吉！
+
 ## 特别声明:
 
 * 本仓库发布的`jd_seckill`项目中涉及的任何脚本，仅用于测试和学习研究，禁止用于商业用途，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断。
